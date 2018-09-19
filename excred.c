@@ -30,18 +30,6 @@ void sighandler(int signum, siginfo_t *siginfo, void *content) {
 	
 }
 
-void sendsignal(int ppid) {
-    // wait a random amount of time between 1 and 5 seconds
-    int sleepytime = rand() % 5 + 1;
-    sleep(sleepytime);
-
-    // generate a random signal
-    int signumb = rand() % 2;
-    switch (signumb) {
-        case 0: kill(ppid, SIGUSR1); break;
-        case 1: kill(ppid, SIGUSR2);
-    }
-}
 
 int main() {
 
@@ -93,7 +81,16 @@ int main() {
     else if (!pid || (pid && !pid2)) {
         // children
         while (1) {
-            sendsignal(ppid);
+            // wait a random amount of time between 1 and 5 seconds
+            int sleepytime = rand() % 5 + 1;
+            sleep(sleepytime);
+
+            // generate a random signal
+            int signumb = rand() % 2;
+            switch (signumb) {
+                case 0: kill(ppid, SIGUSR1); break;
+                case 1: kill(ppid, SIGUSR2);
+            }
         }
     }
         
