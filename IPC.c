@@ -1,8 +1,20 @@
+/**********************************************
+* Lab 3: Interprocess Communication
+* 452 - 10
+* IPC.c
+*
+* Authors:
+* Anthony Blanton
+* Alison Schefler
+*
+***********************************************/
+
 #include <stdio.h> 
 #include <stdlib.h> 
 #include <unistd.h> 
 #include <string.h>
 #include <signal.h>
+#include <time.h>
 
 void sigHandler(int);
 void sigHandlerExit(int);
@@ -12,6 +24,9 @@ int main()
 	pid_t pid, ppid;
 	int sleepTime;
 	int randSig;
+
+	/*Seed random number generator*/
+	srand(time(0));
 
 	/*Get parent PID*/
 	ppid = getpid();

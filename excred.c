@@ -1,3 +1,14 @@
+/*********************************************
+* Lab 3: Extra Credit
+* 452 - 10
+* excred.c
+*
+* Authors:
+* Anthony Blanton
+* Alison Scheffler
+*
+**********************************************/
+
 #include <stdio.h> 
 #include <stdlib.h> 
 #include <unistd.h> 
